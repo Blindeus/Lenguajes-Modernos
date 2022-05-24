@@ -34,14 +34,22 @@ class _CreateObraState extends State<Create_obra> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formkey,
-      child: Column(children: [_buildNameformField(),
-      _buildPresupuestoEstimadoformField(),
-      _buldPresupuestoGastadoformField(),
-      _buildFechaEntregaformField()
-      ],
-      )
-    );
+        key: _formkey,
+        child: Column(
+          children: [
+            _buildNameformField(),
+            _buildPresupuestoEstimadoformField(),
+            _buldPresupuestoGastadoformField(),
+            _buildFechaEntregaformField(),
+            TextButton(
+                child: const Text('Crear Obra'),
+                onPressed: () {
+                  if (_formkey.currentState!.validate()) {
+                    print("Guardar");
+                  }
+                })
+          ],
+        ));
   }
 
   TextFormField _buildNameformField() {
@@ -50,66 +58,66 @@ class _CreateObraState extends State<Create_obra> {
       onSaved: (newValue) => nombre_obra = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error:'nombre invalido');
+          removeError(error: 'nombre invalido');
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error:'nombre invalido');
+          addError(error: 'nombre invalido');
           return "";
         }
         return null;
       },
       decoration: const InputDecoration(
-          labelText: "Nombre",
-          hintText: "Obra Numero 1",
-    ),
+        labelText: "Nombre",
+        hintText: "Obra Numero 1",
+      ),
     );
   }
 
-TextFormField _buildPresupuestoEstimadoformField() {
+  TextFormField _buildPresupuestoEstimadoformField() {
     return TextFormField(
       keyboardType: TextInputType.number,
       onSaved: (newValue) => presupuesto_estimado = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error:'nombre invalido');
+          removeError(error: 'nombre invalido');
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error:'nombre invalido');
+          addError(error: 'nombre invalido');
           return "";
         }
         return null;
       },
       decoration: const InputDecoration(
-          labelText: "Presupuesto Estimado",
-          hintText: "4.000.000",
-    ),
+        labelText: "Presupuesto Estimado",
+        hintText: "4.000.000",
+      ),
     );
   }
 
-TextFormField _buldPresupuestoGastadoformField() {
+  TextFormField _buldPresupuestoGastadoformField() {
     return TextFormField(
       keyboardType: TextInputType.number,
       onSaved: (newValue) => presupuesto_gastado = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error:'nombre invalido');
+          removeError(error: 'nombre invalido');
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error:'nombre invalido');
+          addError(error: 'nombre invalido');
           return "";
         }
         return null;
       },
       decoration: const InputDecoration(
-          labelText: "Presupuesto Gastado",
-          hintText: "2.500.000",
-    ),
+        labelText: "Presupuesto Gastado",
+        hintText: "2.500.000",
+      ),
     );
   }
 
@@ -119,26 +127,20 @@ TextFormField _buldPresupuestoGastadoformField() {
       onSaved: (newValue) => fecha_entrega = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error:'Fecha Invalida');
+          removeError(error: 'Fecha Invalida');
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error:'Fecha Invalida');
+          addError(error: 'Fecha Invalida');
           return "";
         }
         return null;
       },
       decoration: const InputDecoration(
-          labelText: "Fecha Obra",
-          hintText: "24 de mayo 2022",
-    ),
+        labelText: "Fecha Obra",
+        hintText: "24 de mayo 2022",
+      ),
     );
   }
-  
-  
-
-
-
-
 }
