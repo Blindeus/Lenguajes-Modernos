@@ -13,7 +13,7 @@ class Myapp extends StatelessWidget {
       title: 'Crear Obra',
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(124, 255, 200, 0),
+          backgroundColor: const Color.fromARGB(124, 255, 200, 0),
           leading: const Icon(Icons.arrow_back),
           title: const Text('Crear Obra'),
           centerTitle: true,

@@ -41,10 +41,12 @@ class _CreateObraState extends State<Create_obra> {
             _buildPresupuestoEstimadoformField(),
             _buldPresupuestoGastadoformField(),
             _buildFechaEntregaformField(),
-            TextButton(
+            const SizedBox(height: 50.0),
+            TextButton(  
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.yellow)),
                 child: const Text('Crear Obra'),
                 onPressed: () {
-                  if (_formkey.currentState!.validate()) {
+              if (_formkey.currentState!.validate()) {
                     print("Guardar");
                   }
                 })
@@ -81,12 +83,12 @@ class _CreateObraState extends State<Create_obra> {
       onSaved: (newValue) => presupuesto_estimado = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: 'nombre invalido');
+          removeError(error: 'valor invalido');
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: 'nombre invalido');
+          addError(error: 'valor Invalido');
           return "";
         }
         return null;
@@ -104,12 +106,12 @@ class _CreateObraState extends State<Create_obra> {
       onSaved: (newValue) => presupuesto_gastado = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: 'nombre invalido');
+          removeError(error: 'valor Invalido');
         }
       },
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: 'nombre invalido');
+          addError(error: 'valor Invalido');
           return "";
         }
         return null;
