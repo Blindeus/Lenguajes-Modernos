@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Create_obra extends StatefulWidget {
+class Update_Obra extends StatefulWidget {
   @override
-  State<Create_obra> createState() => _CreateObraState();
+  State<Update_Obra> createState() => _UpdateObraState();
 }
 
-class _CreateObraState extends State<Create_obra> {
+class _UpdateObraState extends State<Update_Obra> {
   final _formkey = GlobalKey<FormState>();
 
   late String nombre_obra;
@@ -52,7 +52,7 @@ class _CreateObraState extends State<Create_obra> {
             const SizedBox(height: 50.0),
             TextButton(  
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.yellow)),
-                child: const Text('Crear Obra'),
+                child: const Text('Actualizar Datos'),
                 onPressed: () {
               if (_formkey.currentState!.validate()) {
                     print("Guardar"); //mensaje "guardar" nos indica que si se envio el formulario.
@@ -64,7 +64,7 @@ class _CreateObraState extends State<Create_obra> {
 
   TextFormField _buildNameformField() {
     return TextFormField(
-      keyboardType: TextInputType.name,
+      keyboardType:  TextInputType.name,
       onSaved: (newValue) => nombre_obra = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
@@ -79,9 +79,9 @@ class _CreateObraState extends State<Create_obra> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Nombre Obra",
+        labelText: "Nombre",
         hintText: "Obra Numero 1",
-        suffixIcon: Icon(Icons.badge)
+        suffixIcon: Icon(Icons.edit)
       ),
     );
   }
@@ -105,7 +105,7 @@ class _CreateObraState extends State<Create_obra> {
       decoration: const InputDecoration(
         labelText: "Presupuesto Estimado",
         hintText: "4.000.000",
-        suffixIcon: Icon(Icons.attach_money)
+        suffixIcon: Icon(Icons.edit)
       ),
     );
   }
@@ -129,7 +129,7 @@ class _CreateObraState extends State<Create_obra> {
       decoration: const InputDecoration(
         labelText: "Presupuesto Gastado",
         hintText: "2.500.000",
-        suffixIcon: Icon(Icons.attach_money)
+        suffixIcon: Icon(Icons.edit)
       ),
     );
   }
@@ -153,7 +153,7 @@ class _CreateObraState extends State<Create_obra> {
       decoration: const InputDecoration(
         labelText: "Fecha Obra",
         hintText: "24 de mayo 2022",
-        suffixIcon: Icon(Icons.event)
+        suffixIcon: Icon(Icons.edit)
       ),
     );
   }
